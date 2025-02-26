@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import {MdClose, MdMenu} from "react-icons/md";
-
+import {NavLink, Link } from "react-router";
+import { useNavigate } from 'react-router'
 const Header = () => {
+//   const navLinkStyles =({isActive})=>{
+// return ({
+//   fontWeight: isActive ? "bold" : "normal",
+//   backgroundColor: isActive ? "blue" : "black",
+//   color: isActive ? "white" : "black",
+//   padding:isActive ? "10px 20px" : "",
+//   borderRadius :isActive ? "10px" : "",
+// });
+//   }
+ const navigate = useNavigate();
+
     const [isMenuOpen,setIsMenuOpen] = useState(false);
-  const MenuItems = ["home", "about", "services", "contact"];
+  // const MenuItems = ["home", "about", "services", "contact"];
 const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
 }
@@ -13,23 +25,29 @@ const toggleMenu = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div>
-            <h3 className="text-2xl font-bold">
+            <Link to="/" className="text-2xl font-bold">
               <span className="uppercase text-blue-500 text-4xl">P</span>ort
               <span className="uppercase text-blue-500 text-4xl">f</span>olio
-            </h3>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-4">
             <ul className="flex space-x-6">
-              {MenuItems.map((item, index) => (
-                <li
+              {/* {MenuItems.map((item, index) => (
+                <Link to=""
                   className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer"
                   key={index}
                 >
                   {item}
-                </li>
-              ))}
+                </Link>
+              ))} */}
+              <Link to='/'  className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer">Home</Link>
+              <Link to='/about'  className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer">about</Link>
+              <NavLink to='/services'  className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer">services</NavLink>
+              <Link to='/register'  className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer">contact</Link>
+              <NavLink to='/profile'  className="text-white text-xl hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold cursor-pointer">Profile</NavLink>
+
             </ul>
           </div>
 
@@ -37,7 +55,9 @@ const toggleMenu = () => {
           <div className="hidden lg:flex item-center space-x-4">
             <button className="hover:text-gray-300 hidden xl:block capitalize font-bold cursor-pointer">log in</button>
             <button className="hover:text-gray-300 hidden xl:block capitalize font-bold cursor-pointer">add services</button>
-            <button className="hover:text-gray-300  bg-blue-600 px-4 py-1 rounded-md hover:bg-blue-700 capitalize font-bold cursor-pointer">View Projects</button>
+            <button onClick={()=> navigate('/project')} className="hover:text-gray-300  bg-blue-600 px-4 py-1 rounded-md hover:bg-blue-700 capitalize font-bold cursor-pointer">View Projects</button>
+            {/* <button onClick={()=> navigate('/project',{replace:true})} className="hover:text-gray-300  bg-blue-600 px-4 py-1 rounded-md hover:bg-blue-700 capitalize font-bold cursor-pointer">View Projects</button>   */}
+            {/* for remove all history */}
           </div>
 
           {/* Mobile Menu */}
