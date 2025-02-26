@@ -12,6 +12,7 @@ import Development from './components/Development';
 import Hosting from './components/Hosting';
 import DevelopmentDetail from './components/DevelopmentDetail';
 import Register from './components/Register';
+import HeaderCom from './HeadComp/HeaderCom';
 import ReactDOM from 'react-dom/client'
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
 
 
  </Routes>
-
+<HeaderCom/>
     </>
   )
 }

@@ -75,13 +75,28 @@ const toggleMenu = () => {
         isMenuOpen && (
         <div className="md:hidden">
 <div className="px-2 pt-2 pb-3 space-y-1">
-<ul>
+<NavLink to="/" className="block text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold py-2 px-2">
+              Home
+            </NavLink>
+            <NavLink to="/about" className="block text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold py-2 px-2">
+              About
+            </NavLink>
+            <NavLink to="/services" className="block text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold py-2 px-2">
+              Services
+            </NavLink>
+            <NavLink to="/register" className="block text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold py-2 px-2">
+              Contact
+            </NavLink>
+            <NavLink to="/profile" className="block text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitalize font-bold py-2 px-2">
+              Profile
+            </NavLink>
+{/* <ul>
     {MenuItems.map((item, index) => (
         <li className="text-white text-md hover:text-blue-500 transition duration-300 ease-in-out capitaliz py-2 px-2 capitalize font-bold"  key={index}>
             {item}
         </li>
     ))}
-</ul>
+</ul> */}
 <button className="hover:text-gray-300  capitalize font-bold cursor-pointer px-2 py-2">log in</button>
             <button className="hover:text-gray-300  block capitalize font-bold cursor-pointer px-2 py-2">add services</button>
             <button className="hover:text-gray-300  bg-blue-600 px-4 py-1 rounded-md hover:bg-blue-700 capitalize font-bold cursor-pointer mx-2 my-2">View Projects</button>
